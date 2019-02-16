@@ -2,14 +2,24 @@
   <div class="card room-details">
     <h2 class="title">{{ room.name }} - {{ room.description }}</h2>
     <div class="content">
-      <div>
+      <div v-bind:class="{ 'warning-high': tempWarningHigh, 'warning-low': tempWarningLow }">
         <font-awesome-icon class="icon" icon="thermometer-three-quarters" /> 
         <span class="value">{{ room.temperature }} °C</span>
       </div>
-      <div>
+      <div v-bind:class="{ 'warning-high': humidWarningHigh, 'warning-low': humidWarningLow }">
         <font-awesome-icon class="icon" icon="tint" />
         <span class="value">{{ room.humidity }} %</span>
       </div>
+    </div>
+    <div class="warnings" v-if="room.warnings && room.warnings.length > 0">
+      <ul>
+        <li v-for="warning in room.warnings">
+          <p>
+            <font-awesome-icon class="icon warning" icon="exclamation-triangle" /> 
+            {{ warningDescription(warning) }}
+          </p>
+        </li>
+      </ul>
     </div>
     <p class="date">Last updated: {{ lastUpdated }}</p>
     <battery-indicator :batteryLevel="room.battery" :showDetails=true />
@@ -26,10 +36,42 @@ export default {
     lastUpdated: function () {
       return moment(this.room.lastUpdated).format('YY-MM-DD HH:mm:ss');
     },
+    tempWarningHigh: function () {
+      return this.room.warnings && this.room.warnings.some(warning => (warning == 'temperatureHigh'));
+    },
+    tempWarningLow: function () {
+      return this.room.warnings && this.room.warnings.some(warning => (warning == 'temperatureLow'));
+    },
+    humidWarningHigh: function () {
+      return this.room.warnings && this.room.warnings.some(warning => (warning == 'humidityHigh'));
+    },
+    humidWarningLow: function () {
+      return this.room.warnings && this.room.warnings.some(warning => (warning == 'humidityLow'));
+    },
   },
   components: {
     'battery-indicator': BatteryIndicator,
-  }
+  },
+  methods: {
+    warningDescription: function (warning) {
+      let description = "";
+      switch (warning) {
+        case "temperatureHigh":
+          description = "Temperature too high!";
+          break;
+        case "temperatureLow":
+          description = "Temperature too low!";
+          break;
+        case "humidityHigh":
+          description = "Humidity too high!";
+          break;
+        case "humidityLow":
+          description = "Humidity too low!";
+          break;
+      }
+      return description;
+    }
+  },
 };
 </script>
 
@@ -77,6 +119,12 @@ export default {
     display: flex;
     justify-content: center;
     font-size: 14px;
+  }
+
+  .warnings {
+    width: 100%;
+    display: flex;
+    justify-content: center;
   }
 }
 </style>

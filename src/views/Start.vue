@@ -8,8 +8,6 @@
 </template>
 
 <script>
-// TODO: Add logic for the warnings
-// TODO: Add temperature warnings to the data
 import BuildingList from '@/components/BuildingList.vue';
 import { mapState } from 'vuex';
 export default {

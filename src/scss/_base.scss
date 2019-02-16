@@ -26,6 +26,10 @@
 
   @media (min-width: $breakpoint-small) {
     min-width: 300px;
+    min-height: 120px;
+  }
+
+  @media (min-width: $breakpoint-large) {
     min-height: 150px;
   }
 
@@ -51,6 +55,13 @@
     flex-grow: 1;
     text-align: center;
     padding: 0 20px;
+    font-size: 24px;
+    line-height: 44px;
+
+    @media (min-width: $breakpoint-small) {
+      font-size: 32px;
+      line-height: normal;
+    }
   }
 
   .icon {
@@ -58,4 +69,11 @@
     vertical-align: baseline;
     color: #fff;
   }
+}
+.warning, .warning-high {
+  color: #ff6b6b;
+}
+
+.warning-low {
+  color: #6b7fff;
 }

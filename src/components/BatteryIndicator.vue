@@ -5,7 +5,7 @@
     <font-awesome-icon class="icon" v-if="batteryPercentage == 90" icon="battery-full" />
     <font-awesome-icon class="icon" v-else-if="batteryPercentage >= 66" icon="battery-three-quarters" />
     <font-awesome-icon class="icon" v-else-if="batteryPercentage >= 33" icon="battery-half" />
-    <font-awesome-icon class="icon critical-level" v-else icon="battery-quarter" />
+    <font-awesome-icon class="icon warning" v-else icon="battery-quarter" />
   </div>
 </template>
 
@@ -29,10 +29,6 @@ export default {
 .battery-indicator {
   display: flex;
   flex-grow: 1;
-}
-
-.critical-level {
-  color: #ff0000;
 }
 
 .battery-voltage {
