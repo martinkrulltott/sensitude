@@ -1,0 +1,61 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  color: #2c3e50;
+}
+
+.card-wrapper {
+  display: block;
+  margin: 0 15px 20px;
+
+  @media (min-width: $breakpoint-large) {
+    max-width: $breakpoint-large - 70px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.card {
+  min-height: 100px;
+  padding: 20px;
+  color: #fff;
+  background: #83de93;
+  background: linear-gradient(to bottom, #83de93 0%, #78bd91 100%);
+  border-radius: 5px;
+
+  @media (min-width: $breakpoint-small) {
+    min-width: 300px;
+    min-height: 150px;
+  }
+
+  .title {
+    margin: 0;
+    text-align: left;
+  }
+}
+
+.view-title {
+  margin: 0 0 10px;
+  padding: 15px;
+  background: #84c4dc;
+  color: #fff;
+  display: flex;
+
+  @media (min-width: $breakpoint-small) {
+    margin: 0 0 20px;
+    padding: 20px;
+  }
+
+  .title-text {
+    flex-grow: 1;
+    text-align: center;
+    padding: 0 20px;
+  }
+
+  .icon {
+    font-size: 22px;
+    vertical-align: baseline;
+    color: #fff;
+  }
+}
