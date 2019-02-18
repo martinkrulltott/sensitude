@@ -1,5 +1,5 @@
 <template>
-  <div class="building-list">
+  <div>
     <ul>
       <li v-for="building in buildings">
         <router-link :to="{ name: 'building', params: { id: building.id }}" class="card-wrapper">

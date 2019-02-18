@@ -29,31 +29,21 @@
 <script>
 import BatteryIndicator from '@/components/BatteryIndicator.vue';
 import moment from 'moment';
+import { warningBooleans } from './mixins/warningBooleans.js'
 export default {
   name: 'RoomDetails',
   props: ['room'],
+  mixins: [warningBooleans],
   computed: {
     lastUpdated: function () {
       return moment(this.room.lastUpdated).format('YY-MM-DD HH:mm:ss');
-    },
-    tempWarningHigh: function () {
-      return this.room.warnings && this.room.warnings.some(warning => (warning == 'temperatureHigh'));
-    },
-    tempWarningLow: function () {
-      return this.room.warnings && this.room.warnings.some(warning => (warning == 'temperatureLow'));
-    },
-    humidWarningHigh: function () {
-      return this.room.warnings && this.room.warnings.some(warning => (warning == 'humidityHigh'));
-    },
-    humidWarningLow: function () {
-      return this.room.warnings && this.room.warnings.some(warning => (warning == 'humidityLow'));
     },
   },
   components: {
     'battery-indicator': BatteryIndicator,
   },
   methods: {
-    warningDescription: function (warning) {
+    warningDescription: (warning) => {
       let description = "";
       switch (warning) {
         case "temperatureHigh":
@@ -75,10 +65,10 @@ export default {
 };
 </script>
 
-<style lang="scss">
+<style scoped lang="scss">
 @import "@/scss/_variables.scss";
 
-.room-details {
+.card {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
@@ -90,41 +80,41 @@ export default {
   .battery-indicator {
     justify-content: flex-end;
   }
+}
 
-  .content {
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    margin-top: 15px;
+.content {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15px;
 
-    .value {
-      display: inline-block;
-      font-size: 32px;
-      line-height: 55px;
+  .value {
+    display: inline-block;
+    font-size: 32px;
+    line-height: 55px;
 
-      @media (min-width: $breakpoint-small) {
-        font-size: 40px;
-      }
-    }
-
-    .icon {
-      font-size: 75px;
-      display: block;
-      margin: 0 auto;
+    @media (min-width: $breakpoint-small) {
+      font-size: 40px;
     }
   }
 
-  .date {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    font-size: 14px;
+  .icon {
+    font-size: 75px;
+    display: block;
+    margin: 0 auto;
   }
+}
 
-  .warnings {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-  }
+.date {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  font-size: 14px;
+}
+
+.warnings {
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 </style>

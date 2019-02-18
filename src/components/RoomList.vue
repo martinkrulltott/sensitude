@@ -1,5 +1,5 @@
 <template>
-  <div class="room-list">
+  <div>
     <ul>
       <li v-for="room in rooms">
         <router-link :to="{ name: 'room', params: { id: room.id }}" class="card-wrapper">

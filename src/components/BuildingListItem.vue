@@ -1,5 +1,5 @@
 <template>
-  <div class="card building-list-item">
+  <div class="card">
     <h2 class="title">{{ building.name }}</h2>
       <div class="warnings" v-if="warnings && warnings.length > 0">
         <ul>
@@ -25,12 +25,13 @@ export default {
   name: 'BuildingListItem',
   props: ['building'],
   computed: {
-    warnings: function () {
+    warnings: function() {
       let warnings = [];
-      const roomsWithWarnings = this.building.rooms.filter(room => room.warnings && room.warnings.length > 0);
+      const roomsWithWarnings = this.building.rooms
+        .filter(room => room.warnings && room.warnings.length > 0);
       if (roomsWithWarnings && roomsWithWarnings.length > 0) {
-        roomsWithWarnings.forEach(function(room) {
-          room.warnings.forEach(function(warning) {
+        roomsWithWarnings.forEach((room) => {
+          room.warnings.forEach((warning) => {
             warnings.push({
               roomName: room.name,
               warningType: warning
@@ -42,7 +43,7 @@ export default {
     },
   },
   methods: {
-    warningDescription: function (warning) {
+    warningDescription: (warning) => {
       let description = "";
       switch (warning.warningType) {
         case "temperatureHigh":

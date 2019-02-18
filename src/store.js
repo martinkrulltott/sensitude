@@ -12,10 +12,10 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_BUILDINGS(state, buildings) {
-      // Randomizing sensor data to immitate database updates
-      buildings.forEach(function(building) {
-        building.rooms.forEach(function(room) {
-          let randFloat = Math.floor(Math.random() * 10) / 10;
+      // Dev note: Randomizing sensor data to immitate database updates
+      buildings.forEach((building) => {
+        building.rooms.forEach((room) => {
+          const randFloat = Math.floor(Math.random() * 10) / 10;
           room.temperature = (room.temperature + randFloat).toFixed(1);
           room.humidity = (room.humidity + randFloat).toFixed(1);
           room.lastUpdated = Date.now();

@@ -10,13 +10,16 @@
 </template>
 
 <script>
+// Dev note: To make things a little bit more interesting I decided to add
+// the low battery warning logic in JS rather than having it being returned
+// by the database like the other warnings.
 let maxBatteryLevel = 2.8;
 let minBatteryLevel = 2.0;
 export default {
   name: 'BatteryIndicator',
   props: ['batteryLevel', 'showDetails'],
   computed: {
-    batteryPercentage: function () {
+    batteryPercentage: function() {
       return (
         (this.batteryLevel - minBatteryLevel) / (maxBatteryLevel - minBatteryLevel) * 100
       ).toFixed(0);

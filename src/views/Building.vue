@@ -23,7 +23,9 @@ export default {
   },
   props: ['id'],
   mounted () {
-    this.$store.dispatch('loadBuildings')
+    if(!this.$store.state || !this.$store.state.buildings || this.$store.state.buildings.length == 0) {
+      this.$store.dispatch('loadBuildings');
+    }
   },
   computed: {
     ...mapGetters({
@@ -32,7 +34,7 @@ export default {
   },
   methods: {
     refresh: function (event) {
-      this.$store.dispatch('loadBuildings')
+      this.$store.dispatch('loadBuildings');
     }
   }
 };
