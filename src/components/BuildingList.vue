@@ -12,11 +12,12 @@
 
 <script>
 import BuildingListItem from '@/components/BuildingListItem.vue';
+
 export default {
   name: 'BuildingList',
   props: ['buildings'],
   components: {
     'building-list-item': BuildingListItem,
-  }
+  },
 };
 </script>

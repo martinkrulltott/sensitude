@@ -1,5 +1,7 @@
 import { library } from '@fortawesome/fontawesome-svg-core';
-import { faBatteryFull, faBatteryQuarter, faBatteryHalf, faBatteryThreeQuarters, faThermometerThreeQuarters, faTint, faArrowLeft, faSyncAlt, faExclamationTriangle, faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import {
+  faBatteryFull, faBatteryQuarter, faBatteryHalf, faBatteryThreeQuarters, faThermometerThreeQuarters, faTint, faArrowLeft, faSyncAlt, faExclamationTriangle, faCheckCircle,
+} from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 import Vue from 'vue';
 import App from './App.vue';
@@ -17,7 +19,7 @@ Vue.config.productionTip = false;
 new Vue({
   router,
   store,
-  created () {
+  created() {
     setInterval(() => {
       this.$store.dispatch('loadBuildings');
     }, 10000);

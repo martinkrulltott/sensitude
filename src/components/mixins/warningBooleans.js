@@ -1,16 +1,16 @@
 export const warningBooleans = {
   computed: {
-    tempWarningHigh: function () {
+    tempWarningHigh() {
       return this.room.warnings && this.room.warnings.some(warning => (warning == 'temperatureHigh'));
     },
-    tempWarningLow: function () {
+    tempWarningLow() {
       return this.room.warnings && this.room.warnings.some(warning => (warning == 'temperatureLow'));
     },
-    humidWarningHigh: function () {
+    humidWarningHigh() {
       return this.room.warnings && this.room.warnings.some(warning => (warning == 'humidityHigh'));
     },
-    humidWarningLow: function () {
+    humidWarningLow() {
       return this.room.warnings && this.room.warnings.some(warning => (warning == 'humidityLow'));
     },
   },
-}
+};

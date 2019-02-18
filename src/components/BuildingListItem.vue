@@ -5,7 +5,7 @@
         <ul>
           <li v-for="warning in warnings">
             <p>
-              <font-awesome-icon class="icon warning" icon="exclamation-triangle" /> 
+              <font-awesome-icon class="icon warning" icon="exclamation-triangle" />
               {{ warningDescription(warning) }}
             </p>
           </li>
@@ -13,7 +13,7 @@
       </div>
       <div class="no-warning" v-else>
         <p>
-          <font-awesome-icon class="icon ok-icon" icon="check-circle" /> 
+          <font-awesome-icon class="icon ok-icon" icon="check-circle" />
           Status OK
         </p>
       </div>
@@ -25,8 +25,8 @@ export default {
   name: 'BuildingListItem',
   props: ['building'],
   computed: {
-    warnings: function() {
-      let warnings = [];
+    warnings() {
+      const warnings = [];
       const roomsWithWarnings = this.building.rooms
         .filter(room => room.warnings && room.warnings.length > 0);
       if (roomsWithWarnings && roomsWithWarnings.length > 0) {
@@ -34,7 +34,7 @@ export default {
           room.warnings.forEach((warning) => {
             warnings.push({
               roomName: room.name,
-              warningType: warning
+              warningType: warning,
             });
           });
         });
@@ -44,23 +44,23 @@ export default {
   },
   methods: {
     warningDescription: (warning) => {
-      let description = "";
+      let description = '';
       switch (warning.warningType) {
-        case "temperatureHigh":
-          description = "temperature too high!";
+        case 'temperatureHigh':
+          description = 'temperature too high!';
           break;
-        case "temperatureLow":
-          description = "temperature too low!";
+        case 'temperatureLow':
+          description = 'temperature too low!';
           break;
-        case "humidityHigh":
-          description = "humidity too high!";
+        case 'humidityHigh':
+          description = 'humidity too high!';
           break;
-        case "humidityLow":
-          description = "humidity too low!";
+        case 'humidityLow':
+          description = 'humidity too low!';
           break;
       }
       return (`${warning.roomName} ${description}`);
-    }
+    },
   },
 };
 </script>

@@ -12,11 +12,12 @@
 
 <script>
 import RoomListItem from '@/components/RoomListItem.vue';
+
 export default {
   name: 'RoomList',
   props: ['rooms'],
   components: {
     'room-list-item': RoomListItem,
-  }
+  },
 };
 </script>

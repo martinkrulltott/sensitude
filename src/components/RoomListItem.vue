@@ -4,7 +4,7 @@
     <battery-indicator :batteryLevel="room.battery" :showDetails=false />
     <div class="content">
       <div v-bind:class="{ 'warning-high': tempWarningHigh, 'warning-low': tempWarningLow }">
-        <font-awesome-icon class="icon" icon="thermometer-three-quarters" /> 
+        <font-awesome-icon class="icon" icon="thermometer-three-quarters" />
         <span class="value">{{ room.temperature }} °C</span>
       </div>
       <div v-bind:class="{ 'warning-high': humidWarningHigh, 'warning-low': humidWarningLow }">
@@ -18,7 +18,8 @@
 <script>
 import BatteryIndicator from '@/components/BatteryIndicator.vue';
 import { mapGetters } from 'vuex';
-import { warningBooleans } from './mixins/warningBooleans.js'
+import { warningBooleans } from './mixins/warningBooleans.js';
+
 export default {
   name: 'RoomListItem',
   props: ['room'],
@@ -67,7 +68,7 @@ export default {
 
     .icon {
       font-size: 52px;
-    }      
+    }
   }
 }
 </style>

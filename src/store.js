@@ -35,17 +35,11 @@ export default new Vuex.Store({
     },
   },
   getters: {
-    getBuildingById: state => (id) => {
-      return state.buildings.find(building => building.id === id);
-    },
-    getRoomById: state => (id) => {
-      return state
-        .buildings.find(building => building.rooms.some(room => room.id === id))
-        .rooms.find(room => room.id === id);
-    },
-    getBuildingByRoomId: state => (id) => {
-      return state
-        .buildings.find(building => building.rooms.some(room => room.id === id));
-    },
+    getBuildingById: state => id => state.buildings.find(building => building.id === id),
+    getRoomById: state => id => state
+      .buildings.find(building => building.rooms.some(room => room.id === id))
+      .rooms.find(room => room.id === id),
+    getBuildingByRoomId: state => id => state
+      .buildings.find(building => building.rooms.some(room => room.id === id)),
   },
 });

@@ -3,7 +3,7 @@
     <h2 class="title">{{ room.name }} - {{ room.description }}</h2>
     <div class="content">
       <div v-bind:class="{ 'warning-high': tempWarningHigh, 'warning-low': tempWarningLow }">
-        <font-awesome-icon class="icon" icon="thermometer-three-quarters" /> 
+        <font-awesome-icon class="icon" icon="thermometer-three-quarters" />
         <span class="value">{{ room.temperature }} °C</span>
       </div>
       <div v-bind:class="{ 'warning-high': humidWarningHigh, 'warning-low': humidWarningLow }">
@@ -15,7 +15,7 @@
       <ul>
         <li v-for="warning in room.warnings">
           <p>
-            <font-awesome-icon class="icon warning" icon="exclamation-triangle" /> 
+            <font-awesome-icon class="icon warning" icon="exclamation-triangle" />
             {{ warningDescription(warning) }}
           </p>
         </li>
@@ -29,13 +29,14 @@
 <script>
 import BatteryIndicator from '@/components/BatteryIndicator.vue';
 import moment from 'moment';
-import { warningBooleans } from './mixins/warningBooleans.js'
+import { warningBooleans } from './mixins/warningBooleans.js';
+
 export default {
   name: 'RoomDetails',
   props: ['room'],
   mixins: [warningBooleans],
   computed: {
-    lastUpdated: function () {
+    lastUpdated() {
       return moment(this.room.lastUpdated).format('YY-MM-DD HH:mm:ss');
     },
   },
@@ -44,23 +45,23 @@ export default {
   },
   methods: {
     warningDescription: (warning) => {
-      let description = "";
+      let description = '';
       switch (warning) {
-        case "temperatureHigh":
-          description = "Temperature too high!";
+        case 'temperatureHigh':
+          description = 'Temperature too high!';
           break;
-        case "temperatureLow":
-          description = "Temperature too low!";
+        case 'temperatureLow':
+          description = 'Temperature too low!';
           break;
-        case "humidityHigh":
-          description = "Humidity too high!";
+        case 'humidityHigh':
+          description = 'Humidity too high!';
           break;
-        case "humidityLow":
-          description = "Humidity too low!";
+        case 'humidityLow':
+          description = 'Humidity too low!';
           break;
       }
       return description;
-    }
+    },
   },
 };
 </script>

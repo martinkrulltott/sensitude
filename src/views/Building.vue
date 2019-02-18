@@ -16,26 +16,27 @@
 <script>
 import RoomList from '@/components/RoomList.vue';
 import { mapGetters } from 'vuex';
+
 export default {
   name: 'building',
   components: {
     'room-list': RoomList,
   },
   props: ['id'],
-  mounted () {
-    if(!this.$store.state || !this.$store.state.buildings || this.$store.state.buildings.length == 0) {
+  mounted() {
+    if (!this.$store.state || !this.$store.state.buildings || this.$store.state.buildings.length == 0) {
       this.$store.dispatch('loadBuildings');
     }
   },
   computed: {
     ...mapGetters({
-      'building': 'getBuildingById'
+      building: 'getBuildingById',
     }),
   },
   methods: {
-    refresh: function (event) {
+    refresh(event) {
       this.$store.dispatch('loadBuildings');
-    }
-  }
+    },
+  },
 };
 </script>
