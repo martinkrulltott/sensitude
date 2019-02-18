@@ -29,7 +29,7 @@
 <script>
 import BatteryIndicator from '@/components/BatteryIndicator.vue';
 import moment from 'moment';
-import { warningBooleans } from './mixins/warningBooleans';
+import warningBooleans from '@/components/mixins/warningBooleans';
 
 export default {
   name: 'RoomDetails',

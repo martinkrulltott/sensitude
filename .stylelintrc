@@ -2,5 +2,6 @@
   "plugins": [
     "stylelint-scss"
   ],
+  "processors": ["stylelint-processor-html"],
   "extends": "stylelint-config-airbnb"
 }

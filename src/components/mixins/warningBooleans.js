@@ -1,4 +1,4 @@
-export const warningBooleans = {
+export default {
   computed: {
     tempWarningHigh() {
       return this.room.warnings && this.room.warnings.some(warning => (warning == 'temperatureHigh'));

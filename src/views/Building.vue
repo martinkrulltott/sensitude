@@ -16,6 +16,7 @@
 <script>
 import RoomList from '@/components/RoomList.vue';
 import { mapGetters } from 'vuex';
+import loadInitData from '@/components/mixins/loadInitData';
 
 export default {
   name: 'building',
@@ -23,18 +24,14 @@ export default {
     'room-list': RoomList,
   },
   props: ['id'],
-  mounted() {
-    if (!this.$store.state || !this.$store.state.buildings || this.$store.state.buildings.length == 0) {
-      this.$store.dispatch('loadBuildings');
-    }
-  },
+  mixins: [loadInitData],
   computed: {
     ...mapGetters({
       building: 'getBuildingById',
     }),
   },
   methods: {
-    refresh(event) {
+    refresh() {
       this.$store.dispatch('loadBuildings');
     },
   },

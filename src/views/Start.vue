@@ -10,17 +10,14 @@
 <script>
 import BuildingList from '@/components/BuildingList.vue';
 import { mapState } from 'vuex';
+import loadInitData from '@/components/mixins/loadInitData';
 
 export default {
   name: 'start',
   components: {
     'building-list': BuildingList,
   },
-  mounted() {
-    if (!this.$store.state || !this.$store.state.buildings || this.$store.state.buildings.length == 0) {
-      this.$store.dispatch('loadBuildings');
-    }
-  },
+  mixins: [loadInitData],
   computed: mapState([
     'buildings',
   ]),

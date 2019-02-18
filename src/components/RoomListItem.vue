@@ -17,7 +17,7 @@
 
 <script>
 import BatteryIndicator from '@/components/BatteryIndicator.vue';
-import { warningBooleans } from './mixins/warningBooleans';
+import warningBooleans from '@/components/mixins/warningBooleans';
 
 export default {
   name: 'RoomListItem',
@@ -53,19 +53,17 @@ export default {
     line-height: 32px;
     vertical-align: text-bottom;
     padding-left: 7px;
+
+    @media (min-width: $breakpoint-small) {
+      font-size: 32px;
+      line-height: 52px;
+    }
   }
 
   .icon {
     font-size: 32px;
-  }
 
-  @media (min-width: $breakpoint-small) {
-    .value {
-      font-size: 32px;
-      line-height: 52px;
-    }
-
-    .icon {
+    @media (min-width: $breakpoint-small) {
       font-size: 52px;
     }
   }
