@@ -29,7 +29,7 @@
 <script>
 import BatteryIndicator from '@/components/BatteryIndicator.vue';
 import moment from 'moment';
-import { warningBooleans } from './mixins/warningBooleans.js';
+import { warningBooleans } from './mixins/warningBooleans';
 
 export default {
   name: 'RoomDetails',
@@ -58,6 +58,8 @@ export default {
           break;
         case 'humidityLow':
           description = 'Humidity too low!';
+          break;
+        default:
           break;
       }
       return description;

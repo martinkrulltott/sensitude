@@ -1,7 +1,7 @@
 <template>
   <div>
     <ul>
-      <li v-for="building in buildings">
+      <li v-for="building in buildings" :key="building.id">
         <router-link :to="{ name: 'building', params: { id: building.id }}" class="card-wrapper">
           <building-list-item :building="building" />
         </router-link>

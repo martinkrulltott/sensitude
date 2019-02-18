@@ -17,8 +17,7 @@
 
 <script>
 import BatteryIndicator from '@/components/BatteryIndicator.vue';
-import { mapGetters } from 'vuex';
-import { warningBooleans } from './mixins/warningBooleans.js';
+import { warningBooleans } from './mixins/warningBooleans';
 
 export default {
   name: 'RoomListItem',

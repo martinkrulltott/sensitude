@@ -2,9 +2,12 @@
   <div class="battery-indicator">
     <span v-if="showDetails" class="battery-voltage">{{ batteryLevel }}V </span>
     <span>{{ batteryPercentage }}%</span>
-    <font-awesome-icon class="icon" v-if="batteryPercentage == 90" icon="battery-full" />
-    <font-awesome-icon class="icon" v-else-if="batteryPercentage >= 66" icon="battery-three-quarters" />
-    <font-awesome-icon class="icon" v-else-if="batteryPercentage >= 33" icon="battery-half" />
+    <font-awesome-icon class="icon" v-if="batteryPercentage == 90"
+    icon="battery-full" />
+    <font-awesome-icon class="icon" v-else-if="batteryPercentage >= 66"
+      icon="battery-three-quarters" />
+    <font-awesome-icon class="icon" v-else-if="batteryPercentage >= 33"
+      icon="battery-half" />
     <font-awesome-icon class="icon warning" v-else icon="battery-quarter" />
   </div>
 </template>

@@ -58,6 +58,8 @@ export default {
         case 'humidityLow':
           description = 'humidity too low!';
           break;
+        default:
+          break;
       }
       return (`${warning.roomName} ${description}`);
     },
