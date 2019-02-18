@@ -23,15 +23,15 @@ Uppdateringar sker automatiskt enligt intervall var tioende sekund. Appen är t�
 
 ## Installation
 
-* Klona projektet lokalt (kommando: git clone {url})
-* Navigera till projektets mapp (kommando: cd sensitude)
-* Installera projektets paket (kommando: npm i)
-* Installera Vue CLI 3 (kommando: npm i -g @vue/cli) vid behov
-* Starta Vue CLI (kommando: vue ui)
+1. Klona projektet lokalt (kommando: git clone {url})
+2. Navigera till projektets mapp (kommando: cd sensitude)
+3. Installera projektets paket (kommando: npm i)
+4. Installera Vue CLI 3 (kommando: npm i -g @vue/cli) vid behov
+5. Starta Vue CLI (kommando: vue ui)
 
 ## Användning
 
-* I Vue CLI, gå till Tasks -> Serve och klicka på Run task. Alternativt kör kommandot npm run serve
-* När Serve är igång, klicka på Open app eller gå till http://localhost:8080/
-* Appen körs i browsern, för att simulera mobila enheter, använd "Device Toolbar" i Chrome's devtools
-* Appen kan även nås via nätverket på http://192.168.1.28:8080/
+1. I Vue CLI, gå till Tasks -> Serve och klicka på Run task. Alternativt kör kommandot npm run serve
+2. När Serve är igång, klicka på Open app eller gå till http://localhost:8080/
+3. Appen körs i browsern, för att simulera mobila enheter, använd "Device Toolbar" i Chrome's devtools
+4. Appen kan även nås via nätverket på http://192.168.1.28:8080/
